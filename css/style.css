@@ -341,6 +341,7 @@ footer nav a:hover{color:var(--brass)}
       radial-gradient(circle at 80% 20%,rgba(255,61,127,.14),transparent 55%);
   }
   .hero{padding:110px 0 64px}
+  .hero-lead{display:none}
   .burger{display:block}
   .links{
     position:fixed;inset:68px 0 auto;flex-direction:column;gap:0;
