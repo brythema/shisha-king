@@ -43,16 +43,18 @@ if(f)f.onsubmit=e=>{
   open('https://wa.me/2347042776167?text='+encodeURIComponent(t),'_blank')
 };
 
-/* Count-up stats */
+/* Count-up stats — staggered, eased, with a completion pop */
 const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
-document.querySelectorAll('[data-count]').forEach(el=>{
+const counters=[...document.querySelectorAll('[data-count]')];
+counters.forEach((el,i)=>{
   const end=+el.dataset.count,suf=el.dataset.suffix||'';
   if(reduced||!end){el.textContent=end+suf;return}
-  const t0=performance.now(),dur=1200;
+  const start=performance.now()+i*140, dur=1600;
   const tick=now=>{
-    const k=Math.min((now-t0)/dur,1),eased=1-Math.pow(1-k,3);
+    const raw=(now-start)/dur, k=raw<0?0:Math.min(raw,1), eased=1-Math.pow(1-k,4);
     el.textContent=Math.round(end*eased)+suf;
     if(k<1)requestAnimationFrame(tick);
+    else el.classList.add('pop');
   };
   new IntersectionObserver((es,o)=>{es.forEach(en=>{if(en.isIntersecting){requestAnimationFrame(tick);o.unobserve(en.target)}})},{threshold:.4}).observe(el);
 });
