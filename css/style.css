@@ -80,8 +80,7 @@ header{position:fixed;inset:0 0 auto;z-index:50;transition:.3s}
 header.solid{background:rgba(13,9,11,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
 .logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.45rem;display:flex;gap:9px;align-items:center}
-.logo svg{width:30px;height:auto}
-.logo .crown{filter:drop-shadow(0 2px 6px rgba(255,106,43,.35))}
+.logo .logo-mark{width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 2px 10px rgba(255,106,43,.45))}
 .links{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:600}
 .links a:not(.btn):hover,.links a.on{color:var(--brass)}
 .links .btn{min-height:42px;padding:0 20px}
